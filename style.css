@@ -1,0 +1,525 @@
+
+:root {
+    --bg: #f5f5f2;
+    --surface: #ffffff;
+    --dark: #171717;
+    --muted: #777771;
+    --border: #e4e4df;
+    --soft: #eeeeea;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Navigation */
+
+.navbar {
+    height: 78px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(245, 245, 242, 0.95);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 21px;
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.brand-icon {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    background: var(--dark);
+    color: white;
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.brand-dot {
+    color: #999;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+/* Buttons */
+
+.text-btn,
+.inline-btn {
+    background: transparent;
+    border: none;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.inline-btn {
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+.dark-btn {
+    background: var(--dark);
+    color: white;
+    border: 1px solid var(--dark);
+    padding: 12px 23px;
+    border-radius: 7px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.dark-btn:hover {
+    background: #393939;
+}
+
+.full-btn {
+    width: 100%;
+    margin-top: 15px;
+    min-height: 48px;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-weight: 600;
+}
+
+.outline-btn:hover {
+    background: var(--soft);
+}
+
+/* Hero Section */
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 55px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.12;
+    letter-spacing: -2.8px;
+    font-weight: 750;
+}
+
+.hero h1 span {
+    color: #858580;
+}
+
+.subtitle {
+    max-width: 540px;
+    margin: 22px auto 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* Form Cards */
+
+.form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: min(100% - 36px, 490px);
+    margin: 0 auto 65px;
+    padding: 34px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.035);
+}
+
+.form-card h2,
+.history-section h2,
+.admin-table-card h2 {
+    font-size: 23px;
+    letter-spacing: -0.7px;
+    margin-bottom: 5px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > label,
+#nameGroup label {
+    font-size: 13px;
+    font-weight: 650;
+    margin: 15px 0 7px;
+}
+
+input:not([type="radio"]),
+textarea,
+select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+    color: var(--dark);
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #777;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.045);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.rating {
+    display: flex;
+    gap: 12px;
+    margin: 8px 0;
+}
+
+.rating label {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.rating label:has(input:checked) {
+    background: var(--dark);
+    color: white;
+    border-color: var(--dark);
+}
+
+.status-message {
+    font-size: 13px;
+    margin-top: 12px;
+    color: var(--muted);
+}
+
+.switch-text {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 23px;
+    color: var(--muted);
+}
+
+/* Student Dashboard */
+
+.content-section {
+    max-width: 850px;
+    margin: 30px auto 70px;
+    padding: 0 18px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.content-section .form-card {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.history-section {
+    margin: 35px 0;
+}
+
+.feedback-item {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 9px;
+    margin-top: 12px;
+}
+
+.feedback-item p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+/* Admin Dashboard */
+
+.admin-dashboard {
+    max-width: 1100px;
+    margin: 55px auto 80px;
+    padding: 35px;
+    background: #202020;
+    color: white;
+    border-radius: 14px;
+}
+
+.admin-dashboard .eyebrow {
+    color: #aaa;
+}
+
+.admin-dashboard .section-heading h2 {
+    font-size: 32px;
+}
+
+.admin-dashboard .muted {
+    color: #aaa;
+}
+
+.admin-label {
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: #2b2b2b;
+    border: 1px solid #414141;
+    border-radius: 9px;
+    padding: 23px;
+}
+
+.stat-card p {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.stat-card h3 {
+    font-size: 34px;
+    margin-top: 8px;
+}
+
+/* NEW ADMIN CHARTS */
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 25px 0 30px;
+}
+
+.chart-card {
+    background: #292929;
+    border: 1px solid #414141;
+    border-radius: 9px;
+    padding: 23px;
+    min-width: 0;
+}
+
+.chart-card h3 {
+    font-size: 17px;
+    font-weight: 650;
+    margin-bottom: 4px;
+}
+
+.chart-card > p {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.chart-container {
+    position: relative;
+    height: 260px;
+    width: 100%;
+}
+
+.trend-card {
+    grid-column: 1 / -1;
+}
+
+.trend-card .chart-container {
+    height: 280px;
+}
+
+/* Feedback Management */
+
+.admin-table-card {
+    background: #292929;
+    border: 1px solid #414141;
+    border-radius: 9px;
+    padding: 25px;
+}
+
+.admin-feedback-item {
+    padding: 17px 0;
+    border-bottom: 1px solid #444;
+}
+
+.admin-feedback-item p {
+    color: #bbb;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.delete-btn {
+    background: transparent;
+    color: #ddd;
+    border: 1px solid #777;
+    padding: 7px 12px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    background: #444;
+}
+
+.delete-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.developer-credit {
+    margin-top: 7px;
+}
+
+.developer-credit a {
+    color: var(--dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.developer-credit a:hover {
+    color: #777;
+}
+
+/* Responsive Design */
+
+@media (max-width: 750px) {
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trend-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 18px;
+        height: 68px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .nav-actions {
+        gap: 12px;
+    }
+
+    .hero {
+        padding-top: 65px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .form-card {
+        padding: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard {
+        margin: 25px 12px;
+        padding: 20px;
+    }
+
+    .chart-card {
+        padding: 16px;
+    }
+
+    .chart-container {
+        height: 230px;
+    }
+
+    .trend-card .chart-container {
+        height: 240px;
+    }
+}

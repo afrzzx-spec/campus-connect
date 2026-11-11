@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f5f2">
+    <meta name="description" content="Campus Connect - Student Support Feedback Management System">
+    <title>Campus Connect | Student Support</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#" class="brand">
+            <div class="brand-icon">C</div>
+            <span>campus connect<span class="brand-dot">.</span></span>
+        </a>
+
+        <div class="nav-actions">
+            <button id="loginBtn" class="text-btn">Login</button>
+            <button id="signupBtn" class="dark-btn">Get Started</button>
+            <button id="logoutBtn" class="text-btn hidden">Logout</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <p class="eyebrow">STUDENT SUPPORT • YOUR VOICE MATTERS</p>
+
+            <h1>
+                Better support<br>
+                begins with <span>your voice.</span>
+            </h1>
+
+            <p class="subtitle">
+                Share your experiences, report issues and suggest improvements.
+                Together, we can create a better student support experience.
+            </p>
+        </section>
+
+        <!-- Login and Registration -->
+        <section id="authSection" class="form-card">
+
+            <h2 id="authTitle">Welcome back</h2>
+
+            <p id="authDescription" class="muted">
+                Log in to submit feedback and track your support requests.
+            </p>
+
+            <form id="authForm">
+
+                <div id="nameGroup" class="hidden">
+                    <label for="authName">Full Name</label>
+                    <input type="text" id="authName"
+                        placeholder="Enter your full name">
+                </div>
+
+                <label for="authEmail">College Email Address</label>
+                <input type="email" id="authEmail"
+                    placeholder="name@example.com" required>
+
+                <label for="authPassword">Password</label>
+                <input type="password" id="authPassword"
+                    placeholder="Enter your password" required>
+
+                <button id="authSubmit" class="dark-btn full-btn" type="submit">
+                    Login
+                </button>
+
+                <p id="authMessage" class="status-message"></p>
+
+            </form>
+
+            <p id="authSwitch" class="switch-text">
+                <span id="switchPrompt">Don't have an account?</span>
+                <button type="button" id="switchAuth" class="inline-btn">
+                    Sign up
+                </button>
+            </p>
+
+        </section>
+
+        <!-- Email Verification -->
+        <section id="verifySection" class="form-card hidden">
+
+            <h2>Verify your email</h2>
+
+            <p class="muted">
+                Enter the verification code sent to your registered email address.
+            </p>
+
+            <form id="verifyForm">
+
+                <label for="verifyCode">Verification Code</label>
+                <input id="verifyCode" type="text"
+                    placeholder="Enter verification code" required>
+
+                <button class="dark-btn full-btn" type="submit">
+                    Verify Account
+                </button>
+
+            </form>
+
+            <p id="verifyMessage" class="status-message"></p>
+
+        </section>
+
+        <!-- Student Dashboard -->
+        <section id="userSection" class="content-section hidden">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">STUDENT DASHBOARD</p>
+                    <h2>Welcome, <span id="userName">Student</span></h2>
+                    <p class="muted">Your feedback helps improve student services.</p>
+                </div>
+
+                <button id="historyBtn" class="outline-btn">
+                    My Feedback
+                </button>
+            </div>
+
+            <!-- Feedback Form -->
+            <div class="form-card">
+
+                <h2>Submit Your Feedback</h2>
+
+                <p class="muted">
+                    Tell us about your experience with college support services.
+                </p>
+
+                <form id="feedbackForm">
+
+                    <label for="feedbackCategory">Support Category</label>
+
+                    <select id="feedbackCategory" required>
+                        <option value="">Select a support category</option>
+                        <option value="Technical Support">Technical Support</option>
+                        <option value="Academic Support">Academic Support</option>
+                        <option value="Administrative Support">Administrative Support</option>
+                        <option value="Placement Support">Placement Support</option>
+                        <option value="Library Support">Library Support</option>
+                        <option value="General Enquiry">General Enquiry</option>
+                    </select>
+
+                    <label>Your Satisfaction Rating</label>
+
+                    <div class="rating">
+                        <label><input type="radio" name="rating" value="1" required> 1</label>
+                        <label><input type="radio" name="rating" value="2"> 2</label>
+                        <label><input type="radio" name="rating" value="3"> 3</label>
+                        <label><input type="radio" name="rating" value="4"> 4</label>
+                        <label><input type="radio" name="rating" value="5"> 5</label>
+                    </div>
+
+                    <label for="feedbackMessage">Describe Your Experience</label>
+
+                    <textarea id="feedbackMessage" rows="5"
+                        placeholder="Describe your experience, issue or suggestion..."
+                        required></textarea>
+
+                    <button type="submit" class="dark-btn full-btn">
+                        Submit Feedback
+                    </button>
+
+                    <p id="feedbackStatus" class="status-message"></p>
+
+                </form>
+            </div>
+
+            <!-- Feedback History -->
+            <div id="historySection" class="history-section hidden">
+
+                <h2>My Feedback History</h2>
+
+                <p class="muted">
+                    View the feedback you have previously submitted.
+                </p>
+
+                <div id="historyList"></div>
+
+            </div>
+
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section id="adminSection" class="admin-dashboard hidden">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CAMPUS CONNECT ADMINISTRATION</p>
+                    <h2>Support Overview</h2>
+                    <p class="muted">
+                        Monitor student experiences and support feedback.
+                    </p>
+                </div>
+
+                <span class="admin-label">ADMIN</span>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Feedback</p>
+                    <h3 id="totalCount">0</h3>
+                </div>
+
+                <div class="stat-card">
+                    <p>Average Satisfaction</p>
+                    <h3 id="averageRating">0.0</h3>
+                </div>
+
+                <div class="stat-card">
+                    <p>Support Categories</p>
+                    <h3 id="categoryCount">0</h3>
+                </div>
+
+            </div>
+
+            <!-- Analytics Charts -->
+            <div class="charts-grid">
+
+                <div class="chart-card">
+                    <h3>Category Distribution</h3>
+                    <p>Feedback across support categories</p>
+
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Rating Analysis</h3>
+                    <p>Student satisfaction ratings</p>
+
+                    <div class="chart-container">
+                        <canvas id="ratingChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card trend-card">
+                    <h3>Feedback Trends</h3>
+                    <p>Feedback submissions over time</p>
+
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Feedback Management -->
+            <div class="admin-table-card">
+
+                <h2>Student Feedback</h2>
+
+                <p class="muted">
+                    Review feedback submitted across support categories.
+                </p>
+
+                <div id="adminFeedbackList"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 Campus Connect. Powered by AWS Cloud Services.</p>
+
+        <p class="developer-credit">
+            Developed by <strong>A. Afraz Oraib</strong> |
+            <a href="https://github.com/afrzzx-spec"
+                target="_blank" rel="noopener noreferrer">
+                GitHub
+            </a>
+        </p>
+
+    </footer>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
